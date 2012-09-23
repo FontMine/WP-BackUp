@@ -1,4 +1,4 @@
-WP BackUp 0.1
+WP BackUp 0.1.1
 =========
 
 WP BackUp contient deux scripts qui permettent de planifier des tâches quotidiennes pour sauvegarder dans des dossiers les fichiers du site et un export de la base de données.
