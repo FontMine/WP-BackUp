@@ -7,6 +7,10 @@
  *
  */
 
+// On empêche l'accès direct au fichier
+if( !defined( 'ABSPATH' ) ) die( 'Merci de ne pas charger cette page directement.' );
+
+
 // On crée la planification de notre tâche quotidienne
 add_action('wp', 'backup_website_scheduled');
 function backup_website_scheduled() {

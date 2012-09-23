@@ -4,12 +4,12 @@ WP BackUp 0.1
 WP BackUp contient deux scripts qui permettent de planifier des tâches quotidiennes pour sauvegarder dans des dossiers les fichiers du site et un export de la base de données.
 
 Donation
------------
+================
 
 [![Donate to WP BackUp](https://www.paypalobjects.com/en_GB/i/btn/btn_donate_SM.gif "Donate to Donate to WP BackUp")](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=jonathan%2ebuttigieg%40yahoo%2efr&lc=FR&item_name=WP%20BackUp&no_note=0&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHostedGuest)
 
 Installation
------------
+================
 
 * Placer les fichiers **backup-website.php** et **backup-bdd.php** à la racine de votre thème.
 * Dans le fichier **functions.php** de votre thème, vous devez inclure les deux fichiers comme ci-dessous :
@@ -17,7 +17,7 @@ Installation
 	* `require_once( TEMPLATEPATH . '/backup-website.php' );`
 
 Les paramètres
------------
+================
 
 * **$backup_file**
 	* Nom du fichier de backup.
@@ -37,6 +37,14 @@ Les paramètres
 	* Défaut : `604800`
 
 Changelog
+================
+
+0.1.1 
 -----------
 
-* 0.1 : initial commit
+* Sécurité : on empêche l'accès direct aux fichiers
+
+0.1
+-----------
+
+* initial commit
