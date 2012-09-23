@@ -13,28 +13,28 @@ Installation
 
 * Placer les fichiers backup-website.php et backup-bdd.php à la racine de votre thème
 * Dans le fichier functions.php de votre thème, vous devez inclure les deux fichiers comme ci-dessous :
-	* `require_once( TEMPLATEPATH . '/inc/functions/backup-bdd.php' );`
-	* `require_once( TEMPLATEPATH . '/inc/functions/backup-website.php' );`
+	* `require_once( TEMPLATEPATH . '/backup-bdd.php' );`
+	* `require_once( TEMPLATEPATH . '/backup-website.php' );`
 
 Les paramètres
 -----------
 
-* `$backup_file`
-	*
-	* Défaut : `'db-' . date( 'd-m-Y-G-i-H' ) . '.sql'` (pour la bdd), `'website-' . date( 'd-m-Y-G-i-H' )` (pour les fichiers du site)
-* `$backup_dir`
+* **$backup_file**
+	* Nom du fichier de backup
+	* Défaut : 
+		*`'db-' . date( 'd-m-Y-G-i-H' ) . '.sql'` (pour la bdd) 
+		*`'website-' . date( 'd-m-Y-G-i-H' )` (pour les fichiers du site)
+* **$backup_dir**
 	* Nom du dossier où sera stocké les backup
-	* Défaut : `'backup-bdd'` (pour la bdd), `'backup-website'` (pour les fichiers du site)
-* `$htaccess_file`
+	* Défaut : 
+		* `'backup-bdd'` (pour la bdd) 
+		* `'backup-website'` (pour les fichiers du site)
+* **$htaccess_file**
 	* Chemin vers le fichier .htaccess du dossier de backup
 	* Défaut : `$backup_dir . '/.htaccess'`
-* `$backup_max_life`
+* **$backup_max_life**
 	* Temps maximum de vie d'un fichier de backup - temps en secondes
 	* Défaut : `604800`
-
-$backup_file     = 'db-' . date( 'd-m-Y-G-i-H' ) . '.sql'; 	// nom du fichier de backup
-	$backup_dir      = 'backup-bdd';
-
 
 Changelog
 -----------
