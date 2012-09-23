@@ -22,8 +22,8 @@ Les paramètres
 * **$backup_file**
 	* Nom du fichier de backup
 	* Défaut : 
-		*`'db-' . date( 'd-m-Y-G-i-H' ) . '.sql'` (pour la bdd) 
-		*`'website-' . date( 'd-m-Y-G-i-H' )` (pour les fichiers du site)
+		* `'db-' . date( 'd-m-Y-G-i-H' ) . '.sql'` (pour la bdd) 
+		* `'website-' . date( 'd-m-Y-G-i-H' )` (pour les fichiers du site)
 * **$backup_dir**
 	* Nom du dossier où sera stocké les backup
 	* Défaut : 
