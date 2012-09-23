@@ -12,7 +12,7 @@ Installation
 -----------
 
 * Placer les fichiers **backup-website.php** et **backup-bdd.php** à la racine de votre thème.
-* Dans le fichier functions.php de votre thème, vous devez inclure les deux fichiers comme ci-dessous :
+* Dans le fichier **functions.php** de votre thème, vous devez inclure les deux fichiers comme ci-dessous :
 	* `require_once( TEMPLATEPATH . '/backup-bdd.php' );`
 	* `require_once( TEMPLATEPATH . '/backup-website.php' );`
 
