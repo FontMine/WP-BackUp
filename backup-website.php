@@ -10,7 +10,6 @@
 // On empêche l'accès direct au fichier
 if( !defined( 'ABSPATH' ) ) die( 'Merci de ne pas charger cette page directement.' );
 
-
 // On crée la planification de notre tâche quotidienne
 add_action('wp', 'backup_website_scheduled');
 function backup_website_scheduled() {
@@ -24,11 +23,10 @@ function backup_website_scheduled() {
 add_action( 'backup_website_daily_event', 'do_backup_website' );
 function do_backup_website() {
 
-	$backup_file     = 'website-' . date( 'd-m-Y-G-i-H' ); 			// nom de l'archive de backup
-	$backup_dir      = 'backup-website'; 							// nom du dossier où sera stocké tous les backup
-	$htaccess_file   = $backup_dir . '/.htaccess'; 					// chemin vers le fichier .htaccess du dossier de backup
-	$backup_max_life = 604800;										// temps maximum de vie d'un backup - temps en secondes
-
+	$backup_file     = 'website-' . date( 'd-m-Y-G-i' ); // nom de l'archive de backup
+	$backup_dir      = 'backup-website-' . substr( md5( $_SERVER['SCRIPT_FILENAME '] ), 0, 8 ); // nom du dossier où sera stocké tous les backup
+	$htaccess_file   = $backup_dir . '/.htaccess'; 	// chemin vers le fichier .htaccess du dossier de backup
+	$backup_max_life = 604800;	// temps maximum de vie d'un backup - temps en secondes
 
 	/*-----------------------------------------------------------------------------------*/
 	/*	Gestion du dossier backup-website

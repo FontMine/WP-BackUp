@@ -25,11 +25,11 @@ function do_backup_bdd( ) {
 
 	global $wpdb;
 
-	$buffer          = ''; 										// Variable de sortie
-	$backup_file     = 'db-' . date( 'd-m-Y-G-i-H' ) . '.sql'; 	// nom du fichier de backup
-	$backup_dir      = 'backup-bdd'; 							// nom du dossier où sera stocké tous les backup
-	$htaccess_file   = $backup_dir . '/.htaccess'; 				// chemin vers le fichier .htaccess du dossier de backup
-	$backup_max_life = 604800;									// temps maximum de vie d'un backup - temps en secondes
+	$buffer          = ''; 	// Variable de sortie
+	$backup_file     = 'db-' . date( 'd-m-Y-G-i' ); 	// nom du fichier de backup
+	$backup_dir      = 'backup-bdd-' . substr( md5( $_SERVER['SCRIPT_FILENAME '] ), 0, 8 ); // nom du dossier où sera stocké tous les backup
+	$htaccess_file   = $backup_dir . '/.htaccess'; 	// chemin vers le fichier .htaccess du dossier de backup
+	$backup_max_life = 604800;	// temps maximum de vie d'un backup - temps en secondes
 
 
 	/*-----------------------------------------------------------------------------------*/
@@ -99,7 +99,7 @@ function do_backup_bdd( ) {
 	/*	On sauvegarde le fichier
 	/*-----------------------------------------------------------------------------------*/
 
-	file_put_contents( $backup_dir . '/' . $backup_file, $buffer );
+	file_put_contents( $backup_dir . '/' . $backup_file . '.sql', $buffer );
 
 
 	/*-----------------------------------------------------------------------------------*/
@@ -113,9 +113,12 @@ function do_backup_bdd( ) {
 		if( $zip->open( $backup_dir . '/' . $backup_file . '.zip', ZipArchive::CREATE ) === true ) {
 
 			// On ajoute le fichier dans l'archive
-			$zip->addFile( $backup_dir . '/' . $backup_file );
+			$zip->addFile( $backup_dir . '/' . $backup_file . '.sql' );
 			$zip->close();
-
+			
+			// On supprime le fichier d'origine
+			unlink( $backup_dir . '/' . $backup_file . '.sql' );
+			
 		} // if
 
 	} // if

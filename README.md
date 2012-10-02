@@ -1,4 +1,4 @@
-WP BackUp 0.1.1
+WP BackUp 0.1.2
 =========
 
 WP BackUp contient deux scripts qui permettent de planifier des tâches quotidiennes pour sauvegarder dans des dossiers les fichiers du site et un export de la base de données.
@@ -38,6 +38,12 @@ Les paramètres
 
 Changelog
 ================
+
+0.1.2 
+-----------
+
+* Sécurité : ajout d'un token dans les noms des dossiers qui stockent les archives
+* Suppression du fichier .sql pour garder uniquement la version .zip
 
 0.1.1 
 -----------
