@@ -26,8 +26,8 @@ function do_backup_bdd( ) {
 	global $wpdb;
 
 	$buffer          = ''; 	// Variable de sortie
-	$backup_file     = 'db-' . date( 'd-m-Y-G-i' ); 	// nom du fichier de backup
-	$backup_dir      = 'backup-bdd-' . substr( md5( $_SERVER['SCRIPT_FILENAME '] ), 0, 8 ); // nom du dossier où sera stocké tous les backup
+	$backup_file     = 'db-' . date( 'd-m-Y-G-i' ); // nom du fichier de backup
+	$backup_dir      = 'backup-bdd-' . substr( md5( __FILE__ ), 0, 8 ); // nom du dossier où sera stocké tous les backup
 	$htaccess_file   = $backup_dir . '/.htaccess'; 	// chemin vers le fichier .htaccess du dossier de backup
 	$backup_max_life = 604800;	// temps maximum de vie d'un backup - temps en secondes
 
@@ -37,7 +37,7 @@ function do_backup_bdd( ) {
 	/*-----------------------------------------------------------------------------------*/
 
 	// On créé le dossier backup-bdd si il n'existe pas
-	if( !is_dir( $backup_dir ) ) mkdir( $backup_dir );
+	if( !is_dir( $backup_dir ) ) mkdir( $backup_dir, 755 );
 
 
 	// On ajoute un fichier .htaccess pour la sécurité
@@ -128,7 +128,7 @@ function do_backup_bdd( ) {
 	/*	On supprime les backup qui datent de plus d'une semaine
 	/*-----------------------------------------------------------------------------------*/
 
-	foreach ( glob( $backup_dir . '/*' ) as $file ) {
+	foreach ( glob( $backup_dir . '/*.zip' ) as $file ) {
 
 		if( time() - filemtime( $file ) > $backup_max_life )
 			unlink($file);
@@ -136,5 +136,3 @@ function do_backup_bdd( ) {
 	} // foreach
 
 }
-
-?>

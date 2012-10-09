@@ -1,4 +1,4 @@
-WP BackUp 0.1.2
+WP BackUp 0.1.3
 =========
 
 WP BackUp contient deux scripts qui permettent de planifier des tâches quotidiennes pour sauvegarder dans des dossiers les fichiers du site et un export de la base de données.
@@ -38,6 +38,12 @@ Les paramètres
 
 Changelog
 ================
+
+0.1.3 
+-----------
+
+* Sécurité : Ajout du chmod 755 sur les dossiers de backup
+* Correction d'un bug lors de la suppression des archives
 
 0.1.2 
 -----------
